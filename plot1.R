@@ -19,7 +19,7 @@ df$Datetime <- as.POSIXct(Datetime)
 hist(df$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)")
 
 #copy plot to a png file
-dev.copy(png, file="./ExData_Plotting1/plot1.png")
+dev.copy(png, file="./ExData_Plotting1/plot1.png", width=480, height=480, units="px")
 
 #turn off device
 dev.off()

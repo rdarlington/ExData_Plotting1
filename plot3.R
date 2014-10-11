@@ -16,10 +16,15 @@ Datetime <- paste(as.Date(df$Date), df$Time)
 df$Datetime <- as.POSIXct(Datetime)
 
 #Create plot
-plot(df$Global_active_power ~ df$Datetime, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+windows(6,6)
+plot(df$Sub_metering_1 ~ df$Datetime, col="black", type="l", ylab="Energy sub metering", xlab="")
+lines(df$Sub_metering_2 ~df$Datetime, col="red", type="l")
+lines(df$Sub_metering_3 ~df$Datetime, col="blue", type="l")
+legend("topright", col=c("black", "red", "blue"), 
+       legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=1)
 
 #copy plot to a png file
-dev.copy(png, file="./ExData_Plotting1/plot2.png")
-
+dev.copy(png, file="./ExData_Plotting1/plot3.png", width=480, height=480, units="px")
 #turn off device
 dev.off()
+graphics.off()
